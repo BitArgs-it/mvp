@@ -10,7 +10,7 @@ class UserBase(SQLModel):
     is_active: bool = True
     is_superuser: bool = False
     full_name: str | None = Field(default=None, max_length=255)
-
+    facebook_account: str | None = Field(default=None, max_length=255)
 
 # Properties to receive via API on creation
 class UserCreate(UserBase):
@@ -32,6 +32,7 @@ class UserUpdate(UserBase):
 class UserUpdateMe(SQLModel):
     full_name: str | None = Field(default=None, max_length=255)
     email: EmailStr | None = Field(default=None, max_length=255)
+    facebook_account: str | None = Field(default=None, max_length=255)
 
 
 class UpdatePassword(SQLModel):
